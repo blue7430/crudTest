@@ -9,5 +9,10 @@
 </head>
 <body>
     <h1>게시글 목록</h1>
+<div class="card" th:each="c : ${crud}">
+    <div>
+        <h4 th:text="${c.title}"></h4>
+    </div>
+</div>
 </body>
 </html>

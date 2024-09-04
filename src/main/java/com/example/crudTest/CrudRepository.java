@@ -1,4 +1,6 @@
 package com.example.crudTest;
 
-public interface CrudRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CrudRepository extends JpaRepository<Crud, Integer> {
 }

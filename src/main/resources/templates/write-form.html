@@ -8,12 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>게시글 목록</h1>
-    <a href="/board/write-form"><button type="button">글쓰기</button></a>
-<div class="card" th:each="c : ${crud}">
-    <div>
-        <h4 th:text="${c.title}"></h4>
-    </div>
-</div>
+<h1>글쓰기</h1>
+
 </body>
 </html>

@@ -25,4 +25,9 @@ public class CrudController {
         model.addAttribute("crud", result);
         return "board";
     }
+
+    @GetMapping("/board/write-form")
+    public String write() {
+        return "write-form";
+    }
 }

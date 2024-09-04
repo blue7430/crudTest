@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -30,4 +31,11 @@ public class CrudController {
     public String write() {
         return "write-form";
     }
+
+    @PostMapping("/board/write-form")
+    public String addpost(Integer user_id, String title, String content) {
+        crudService.addpost(user_id, title, content);
+        return "redirect:/board";
+    }
+
 }

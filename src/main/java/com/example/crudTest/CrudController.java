@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,4 +40,15 @@ public class CrudController {
         return "redirect:/board";
     }
 
+    @GetMapping("/board/post/{post_id}")
+    public String post(@PathVariable Integer post_id, Model model) {
+        Optional<Crud> result = crudRepository.findById(post_id);
+        if (result.isPresent()) {
+            model.addAttribute("data", result.get());
+            return "post";
+        }
+        else {
+            return "redirect:/board";
+        }
+    }
 }

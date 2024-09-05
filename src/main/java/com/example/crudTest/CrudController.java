@@ -51,4 +51,9 @@ public class CrudController {
             return "redirect:/board";
         }
     }
+
+    @GetMapping("/board/post/{post_id}/edit")
+    public String edit() {
+        return "edit";
+    }
 }

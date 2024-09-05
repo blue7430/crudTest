@@ -67,4 +67,20 @@ public class CrudController {
         crudService.updatepost(post_id, user_id, title, content);
         return "redirect:/board";
     }
+
+    @GetMapping("/board/post/{post_id}/delete")
+    public String delete(@PathVariable Integer post_id, Model model) {
+        Optional<Crud> result = crudRepository.findById(post_id);
+        if (result.isPresent()) {
+            model.addAttribute("data", result.get());
+            return "delete";
+        } else {
+            return "redirect:/board";
+        }
+    }
+    @PostMapping("/board/post/{post_id}/delete")
+    public String deletepost(@PathVariable Integer post_id){
+        crudService.deletepost(post_id);
+        return "redirect:/board";
+    }
 }

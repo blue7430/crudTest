@@ -29,4 +29,7 @@ public class CrudService {
             crudRepository.save(crud);
         }
     }
+    public void deletepost(Integer post_id){
+        crudRepository.deleteById(post_id);
+    }
 }

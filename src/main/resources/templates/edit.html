@@ -10,7 +10,8 @@
 <body>
     <h1>글 수정</h1>
     <form th:action="@{'/board/post/' + ${data.post_id} + '/edit'}" method="post">
-        <input name="user_id" th:value="${data.user_id}">
+        <input type="hidden" name="post_id" th:value="${data.post_id}">
+        <input type="hidden" name="user_id" th:value="${data.user_id}">
         <input name="title" th:value="${data.title}">
         <input name="content" th:value="${data.content}">
 

@@ -46,14 +46,25 @@ public class CrudController {
         if (result.isPresent()) {
             model.addAttribute("data", result.get());
             return "post";
-        }
-        else {
+        } else {
             return "redirect:/board";
         }
     }
 
     @GetMapping("/board/post/{post_id}/edit")
-    public String edit() {
-        return "edit";
+    public String edit(@PathVariable Integer post_id, Model model) {
+        Optional<Crud> result = crudRepository.findById(post_id);
+        if (result.isPresent()) {
+            model.addAttribute("data", result.get());
+            return "edit";
+        } else {
+            return "redirect:/board";
+        }
+    }
+
+    @PostMapping("/board/post/{post_id}/edit")
+    public String editpost(@PathVariable Integer post_id, Integer user_id, String title, String content) {
+        crudService.updatepost(post_id, user_id, title, content);
+        return "redirect:/board";
     }
 }

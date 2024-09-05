@@ -12,5 +12,8 @@
     <h4 th:text="@{'작성시간 : ' + ${data.create_at}}"></h4>
     <h4 th:text="@{'작성자 : ' + ${data.user_id}}"></h4>
     <h4 th:text="${data.content}"></h4>
+    <a th:href="@{'/board/post/' + ${data.post_id} + '/edit'}">
+        <button type="button">글 수정하기</button>
+    </a>
 </body>
 </html>
